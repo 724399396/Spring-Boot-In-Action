@@ -1,0 +1,22 @@
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:mykeys.jks
+    key-store-password: letmein
+    key-password: letmein
+
+logging:
+  path: /tmp/
+  file: BookWorm.log
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+
+amazon:
+  associateId: hubuma-20
+
+spring:
+  profiles:
+    active: development
