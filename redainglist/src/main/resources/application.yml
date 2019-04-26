@@ -20,3 +20,19 @@ amazon:
 spring:
   profiles:
     active: development
+
+management:
+  endpoint:
+    beans:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+info:
+  contact:
+    email: support@myreadinglist.com
+    phone: 1-888-555-1971

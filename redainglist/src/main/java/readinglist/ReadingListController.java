@@ -1,5 +1,6 @@
 package readinglist;
 
+import io.micrometer.core.instrument.Metrics;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -43,6 +44,9 @@ public class ReadingListController {
     public String addToReadingList(@PathVariable("reader") String reader, Book book) {
         book.setReader(reader);
         readingListRepository.save(book);
+
+        Metrics.counter("books.saved").increment();
+        Metrics.gauge("books.last.saved", System.currentTimeMillis());
         return "redirect:/{reader}";
     }
 }

@@ -38,16 +38,6 @@ public class ReadingListApplicationTests {
     }
 
     @Test
-    public void contextLoads() throws Exception {
-        mockMvc.perform(get("/readingList"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("readingList"))
-                .andExpect(model().attributeExists("books"))
-                .andExpect(model().attribute("books",
-                        is(empty())));
-    }
-
-    @Test
     @WithMockUser(authorities = "READER")
     public void postBook() throws Exception {
         mockMvc.perform(post("/readingList")

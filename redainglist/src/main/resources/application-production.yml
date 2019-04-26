@@ -3,3 +3,12 @@ logging:
     root: WARN
   path: /tmp/
   file: BookWorm.log
+
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:postgresql://localhost:5432/readinglist
+    username:
+    password: 
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
